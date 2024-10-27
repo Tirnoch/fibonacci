@@ -1,9 +1,10 @@
 // Fibonacci
-function fibonacci(n, arr = [0, 1]) {
+function fibonacci(n, arr = [0, 1], x = 1) {
   if (arr.length >= n) return arr.slice(0, n);
   const newNum = arr.at(-1) + arr.at(-2);
   arr.push(newNum);
-  return fibonacci(n, arr);
+  console.log('We have iterated ', x, ' times and it is fun!');
+  return fibonacci(n, arr, x + 1);
 }
 
 // Merge Sort
@@ -33,7 +34,7 @@ const readline = require('readline').createInterface({
 
 readline.question('Pick a number between 0 and 50 to be safe.\n', (num) => {
   try {
-    console.log(mergeSort(fibonacci(num)));
+    console.log(`Fibonacci array of ${num} is: [${mergeSort(fibonacci(num))}]`);
   } catch {
     console.log('that was not in range of expected answers');
   }
